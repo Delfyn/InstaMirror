@@ -3,7 +3,7 @@
 
 This is experimental branch, for some tests, in most cases it will not probabbly work, so, its **better** to stay on **master** 
 
-### TODO (in this order)
+### TODO
 - [x] Init git
 - [x] Login
 - [x] Unfollow (maybe better to save before unfollow)
@@ -21,7 +21,7 @@ This is experimental branch, for some tests, in most cases it will not probabbly
 
 
 
-### Right now :
+### Right now working on :
 
 ##### Logging
 - Terminal output
