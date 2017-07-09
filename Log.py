@@ -8,9 +8,9 @@ class LogFile:
     def __init__(self, name='log.txt'):
         self.name = name
 
-    def terminal_to_file(self, text):  # TODO FIX
+    def write_to_file(self, text):  # VScode(PS) not creating files?!
         """Basicly IM.py > file.txt"""
         # f = open(self.name + 'a')
         # f.write(text + '\n')
         with open(self.name, 'a') as out:
-            out.write('1' + '\n')
+            out.write(text + '\n')
