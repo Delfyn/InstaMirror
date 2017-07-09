@@ -5,18 +5,25 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
+from Log import LogFile
 
-class InstaMirror():
+
+class InstaMirror(object):
     """Main class"""
 
-    username = 'USERNAME'  # TODO parameter login
-    password = 'PASSWORD'
-    copied_profile = 'PROFILE'
+    def __init__(self, name='USERNAME', password='PASSWORD', copied_profile='PROFILE_ID', file_name='Log.txt'):  # TODO FIX CLASS INIT
+        self.name = name  # Variables declaration
+        self.password = password
+        self.copied_profile = copied_profile
+        self.file_name = file_name
+
+        log = LogFile(file_name).terminal_to_file('Text')
 
     chrome_options = Options()
     chrome_options.add_argument("--dns-prefetch-disable")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--lang=en-US")
+
     try:
         driver = webdriver.Chrome(chrome_options=chrome_options)
     except FileNotFoundError:
@@ -28,13 +35,13 @@ class InstaMirror():
         login_button = self.driver.find_element_by_class_name("_fcn8k")
         login_button.click()
         username_field = self.driver.find_element_by_class_name("_qy55y")
-        username_field.send_keys(self.username)
+        username_field.send_keys(self.name)
         self.wait(2, "Password")
         password_field = self.driver.find_element_by_class_name("_1mdqd")
         password_field.send_keys(self.password)
         login_click = self.driver.find_element_by_class_name("_84y62")
         login_click.click()
-        self.wait(5, "Load full page")
+        self.wait(5, "Load full page")  # TODO if successful
 
     def delete_following(self):
         """Open following list after login"""
@@ -54,6 +61,10 @@ class InstaMirror():
 
         found = 1
 
+        def scroll_down(self, count, max):
+            """Scroll to END of screen"""
+            pass
+
         while (found < int(count_following)):
             following_scroll = self.driver.find_element_by_xpath(
                 '/html/body/div[2]/div/div[2]/div/div[2]/ul/li[{}]'.format(found))
@@ -70,7 +81,7 @@ class InstaMirror():
         following_range = range(int(count_following))
         self.wait(3, 'Deleting : ', False)
 
-        for i in following_range: #TODO Instagram guard?!
+        for i in following_range:  # TODO Instagram guard?!
             profile_li = i + 1
             link = self.driver.find_element_by_xpath(
                 '/html/body/div[2]/div/div[2]/div/div[2]/ul/li[{}]/div/div[2]/span/button'.format(profile_li))
