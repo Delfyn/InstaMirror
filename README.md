@@ -7,7 +7,7 @@ This is experimental branch, for some tests, in most cases it will not probabbly
 - [x] Init git
 - [x] Login
 - [x] Unfollow (maybe better to save before unfollow)
-- [ ] Get remote following
+- [x] Get remote following
 - [ ] Follow remote following
 - [ ] Save yours following to file
 - [ ] Follow from file
