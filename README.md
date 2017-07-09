@@ -1,7 +1,7 @@
 # InstaMirror, EXP
 ### Mirror any instagram accout following's
 
-This is experimental branch, for some tests, in most cases it will not probabbly work, so, its **better** stay on **master** 
+This is experimental branch, for some tests, in most cases it will not probabbly work, so, its **better** to stay on **master** 
 
 ### TODO (in this order)
 - [x] Init git
